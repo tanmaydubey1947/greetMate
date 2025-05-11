@@ -2,6 +2,7 @@ package com.greetmate.controller;
 
 
 import com.greetmate.model.GreetMateRequest;
+import com.greetmate.model.GreetMateResponse;
 import com.greetmate.service.GreetMateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class GreetMateController {
 
     @PostMapping
     public ResponseEntity<?> addFriendBirthday(@RequestBody GreetMateRequest request) {
-
-        return ResponseEntity.ok("Hello, GreetMate!");
+        GreetMateResponse greetMateResponse = service.addFriendBirthday(request);
+        return ResponseEntity.ok(greetMateResponse);
     }
 }
